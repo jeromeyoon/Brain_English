@@ -1,10 +1,16 @@
 import SwiftUI
+import UIKit
 
 struct CaptureSelectionView: View {
     @EnvironmentObject var store: ContentStore
     @State private var showCamera = false
     @State private var showAlbum = false
     @State private var showTyping = false
+    @State private var showOCRSimulator = false
+
+    private var isCameraAvailable: Bool {
+        UIImagePickerController.isSourceTypeAvailable(.camera)
+    }
 
     var body: some View {
         NavigationStack {
@@ -44,6 +50,12 @@ struct CaptureSelectionView: View {
                 store.add(content)
             }
         }
+        .sheet(isPresented: $showOCRSimulator) {
+            SimulatorOCRView { image in
+                showOCRSimulator = false
+                Task { await processImage(image, method: .camera) }
+            }
+        }
     }
 
     private var headerSection: some View {
@@ -66,12 +78,22 @@ struct CaptureSelectionView: View {
 
     private var captureButtonsSection: some View {
         VStack(spacing: 16) {
-            CaptureButton(
-                icon: "camera.fill",
-                title: "Take a Photo",
-                subtitle: "Point at your textbook or worksheet",
-                color: .indigo
-            ) { showCamera = true }
+            if isCameraAvailable {
+                CaptureButton(
+                    icon: "camera.fill",
+                    title: "Take a Photo",
+                    subtitle: "Point at your textbook or worksheet",
+                    color: .indigo
+                ) { showCamera = true }
+            } else {
+                // Simulator: use a bundled sample image for OCR testing
+                CaptureButton(
+                    icon: "camera.fill",
+                    title: "Take a Photo",
+                    subtitle: "Simulator: tap to test OCR with a sample image",
+                    color: .indigo.opacity(0.6)
+                ) { showOCRSimulator = true }
+            }
 
             CaptureButton(
                 icon: "photo.fill",

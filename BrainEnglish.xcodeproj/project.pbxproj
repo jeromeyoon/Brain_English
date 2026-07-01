@@ -19,6 +19,7 @@
 		A100000A /* ContentStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000A /* ContentStore.swift */; };
 		A100000B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B100000B /* Assets.xcassets */; };
 		A100000C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B100000C /* Preview Assets.xcassets */; };
+		A100000D /* SimulatorOCRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000F /* SimulatorOCRView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B100000C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B100000D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B100000E /* BrainEnglish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrainEnglish.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B100000F /* SimulatorOCRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulatorOCRView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				B1000005 /* AlbumPickerView.swift */,
 				B1000006 /* TypingInputView.swift */,
 				B1000007 /* ContentLibraryView.swift */,
+				B100000F /* SimulatorOCRView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				A1000005 /* AlbumPickerView.swift in Sources */,
 				A1000006 /* TypingInputView.swift in Sources */,
 				A1000007 /* ContentLibraryView.swift in Sources */,
+				A100000D /* SimulatorOCRView.swift in Sources */,
 				A1000008 /* VisionOCRProcessor.swift in Sources */,
 				A1000009 /* CapturedContent.swift in Sources */,
 				A100000A /* ContentStore.swift in Sources */,
